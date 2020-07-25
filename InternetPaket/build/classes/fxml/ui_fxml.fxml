@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import main.*?> 
+ 
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="main.PersonController">
+    <children>
+        <VBox>
+            <children>
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Button mnemonicParsing="false" text="Close" onAction="#closeForm"/>
+                    </children>
+                </HBox>
+                <Label text="Dodaj novog korisnika" />
+                <TextField fx:id="firstName"  promptText="Ime" />
+                <TextField fx:id="lastName"  promptText="Prezime" />
+                <TextField fx:id="adresa"  promptText="Adresa" />
+                <TextField fx:id="brzina"  promptText="Brzina" />
+                <TextField fx:id="protok"  promptText="Protok" />
+                <TextField fx:id="ugovor"  promptText="Ugovor" />
+                <TextField fx:id="idBroj"  promptText="ID" />
+                <HBox fillHeight="true" >
+                    <children>
+                    </children>
+                </HBox>
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#savePerson" text="Sacuvaj" />
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearPerson" text="Ponisti" />
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deletePerson" text="Obrisi" /><!-- DELETE -->
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <Pane>
+            <TableView fx:id="tabela">
+                <columns>
+                    <TableColumn text="Ime">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="firstName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Prezime">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="lastName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Adresa">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="adresa" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                    <TableColumn text="Brzina">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="brzina" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                    <TableColumn text="Protok">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="protok" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                    <TableColumn text="Ugovor(god)">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="ugovor" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                    <TableColumn text="ID broj">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="idBroj" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                </columns>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                    </FXCollections>
+                </items>
+            </TableView>
+        </Pane>
+    </children>
+</HBox>
